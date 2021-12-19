@@ -15,6 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag build-with-ffmpeg-image:latest
+      run: docker build . --file Dockerfile --tag ghcr.io/dipaolo/build-with-ffmpeg-image:latest
     - name: Push to GitHub Registry
-      run: docker image push --all-tags ghcr.io/dipaolo/build-with-ffmpeg-image
+      run: docker image push ghcr.io/dipaolo/build-with-ffmpeg-image:latest
