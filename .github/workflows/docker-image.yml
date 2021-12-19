@@ -17,4 +17,4 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag build-with-ffmpeg-image:$(date +%s)
     - name: Push to GitHub Registry
-      run: docker push ghcr.io/DiPaolo/build-with-ffmpeg-image:latest
+      run: docker push ghcr.io/dipaolo/build-with-ffmpeg-image:latest
