@@ -1,4 +1,4 @@
-﻿FROM ubuntu:20.04
+﻿FROM ubuntu:21.04
 
 # RUN apk add --no-cache python2 g++ make
 
@@ -9,7 +9,7 @@ RUN apt-get update && \
     apt-get -y install \
         build-essential \
         cmake \
-        clang-format-12 \
+        clang-format \
         openssl libssl-dev \
         wget # see below
 
