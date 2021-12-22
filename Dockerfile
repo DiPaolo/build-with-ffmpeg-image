@@ -1,7 +1,5 @@
 ﻿FROM ubuntu:21.04
 
-# RUN apk add --no-cache python2 g++ make
-
 # to avoid questions about geo-location
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -37,13 +35,9 @@ RUN mkdir -p ~/temp && \
     git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg && \
     cd ffmpeg && \
     git checkout tags/n4.4.1 -b v4.4.1 && \
-    ./configure --prefix=/root/sdks/ffmpeg/4.4.1 --enable-shared --disable-debug && \
+    ./configure --prefix=/root/sdks/ffmpeg/4.4.1 --enable-shared --enable-rpath --disable-debug && \
     make && \
     make install && \
     # clean-up
     cd / && \
     rm -rf ~/temp
-
-# WORKDIR /app
-
-# CMD ["node", "src/index.js"]
