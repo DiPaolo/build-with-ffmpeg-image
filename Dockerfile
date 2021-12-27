@@ -41,3 +41,18 @@ RUN mkdir -p ~/temp && \
     # clean-up
     cd / && \
     rm -rf ~/temp
+
+# build & install libuv
+RUN mkdir -p ~/temp && \
+    cd ~/temp && \
+    git clone https://github.com/libuv/libuv.git && \
+    cd libuv && \
+    git checkout tags/v1.42.0 -b v1.42.0 && \
+    ./autogen.sh && \
+    ./configure --prefix=/root/sdks/libuv/1.42.0 && \
+    make && \
+    make check && \
+    make install && \
+    # clean-up
+    cd / && \
+    rm -rf ~/temp
